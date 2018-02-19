@@ -15,6 +15,8 @@ The data I am working with consists of 14 months of timestamped statuses of elec
 All data is from http://www.mlopt.com/?p=6598, courtesy of James Burkill. Thank you James! I originally found his post of the data on Reddit forum r/datasets (https://www.reddit.com/r/datasets/).
 
 Update 2/11/18: I have spent some time cleaning the data and it is almost ready to be used to train the model. However, I encountered some difficulty in converting the data and time into a datetime type in pandas with python. I successfully concatenated all 14 months into a single dataframe which has an absurd 17,314,536 rows of data. As mentioned by James Burkill in the original description of the dataset, some of the charge points were moved during the 14-month period and so the charge point ID is not a reliable marker of a consistent location. I will use the latitude and longitude as markers of a charge point's location instead.
+
+Update 2/19/18: I *think* the data is all cleaned and ready to be used to start training and testing the models I'm going to build. I am planning on using a linear regression algorithm and a k nearest neighbor algorithm but will experiment with others and see which is most successful towards my goal of predicting the availabilty of a particular charging point.
 _________________________________
 
 Why I Chose this Topic
