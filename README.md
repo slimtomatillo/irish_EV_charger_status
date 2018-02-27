@@ -37,14 +37,7 @@ _________________________________
 
 My Model
 
-I will be using a linear regression model to predict the status of a charge point at a particular time, day, and place. I will also use an unsupervised k-means model to group the various charge points into tiers of usage (from 'rarely used' to 'used very often').
-_________________________________
-
-Questions I will be answering soon:
-
-How have I explored the data and what insights have I gained as a result?
-Will I be able to answer my questions with this data, or will I need to gather more data (or adjust my questions)?
-
+I will be using logistic regression as a baseline predictor of the status of a charge point at a particular time, day, and place. From there, I will experiment with other classficiation models including decision trees and random forest. I will also attempt to use an unsupervised k-means model to group the various charge points into tiers of usage (from 'rarely used' to 'used very often').
 _________________________________
 
 Project Updates:
@@ -54,3 +47,5 @@ Update 2/11/18: I have spent some time cleaning the data and it is almost ready 
 Update 2/19/18: I *think* the data is all cleaned and ready to be used to start training and testing the models I'm going to build. I am planning on using a linear regression algorithm and a k nearest neighbor algorithm but will experiment with others and see which is most successful towards my goal of predicting the availabilty of a particular charging point.
 
 Update 2/20/18: I am working with time series data of 14 months of 5-minute intervals of many different electric vehicle charging stations. I find myself in a bit of a bind, or rather a challenge in which I could proceed in a few directions. And I’m not sure which is the best. One of the main features of my data that I’m concerned with is the Status column (which I’ve split into dummy variable but can  undo that as needed). The Status can either be OOC (out of contact), OOS (out of service), Occ (occupied), or Part (partly occupied). An omission of a timestamp means the status is essentially available. There are a lot of OOC and OOS markings and basically all of that data is unusable to me. And there are time periods of NaN readings as well. I took one approach which was to find the addresses with at least 80% data (100% being consistent 5-minute interval readings for 14 months). I was left with 12 of 561 addresses that passed the threshold. But within that new dataframe, a high percentage of entries are either out of contact OOC or out of service OOS. I’m struggling with how to choose which chunks of the data to work with and which parts to discard. I could go in two directions: 1. pick a couple of charge points (out of 561 total) to predict the status of, working with less data and less omissions, or 2. clean the data set more and work with as many charge points as possible, working with more data including more errors. I am going to proceed with option 1 for now, picking the datasets with the most data, and then explore option 2 if I have time.
+
+Update 2/26/18: How have I explored the data and what insights have I gained as a result? 1. Working with a large dataset takes a lot of time, especially when I need to restart the kernel and re-do the output. 2. It can be challenging to work with data when an absence of an entry implies a certain value. In my cause, looking at the status of a charge point, the lack of an entry implied that the charge point was available. I had to reframe how i was thinking about the data, and some of my questions, like changing ‘when is the charge point available?’ to ‘when is the charge point not available?’ and figuring out when it is available based on that second question. 3. I used get_dummies, but it was useful to keep in place the original Status column so that i could utilize both types of categorization. 4. When beginning the logistic regression, I had to decide whether to count missing data as part of the 'Available' group or 'Not Available' group.
