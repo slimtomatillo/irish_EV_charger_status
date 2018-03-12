@@ -101,3 +101,5 @@ I have several questions and curiosities that were beyond the scope of this proj
 6. Which types of chargers are being used the most? Least?
 7. What is the average time someone spends at a charge point?
 8. Which features of a charge point are most important in predicting whether or not a charge point is available to use at a particular time and day?
+
+Contact: If you have any questions or would like to discuss this project or any of my work further, please email me at datagrlxyz@gmail.com.
